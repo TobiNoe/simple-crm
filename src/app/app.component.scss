@@ -1,7 +1,51 @@
-.mat-drawer-container{
+.mat-drawer-container {
     height: 100vh;
 }
 
 .menu-icon {
     cursor: pointer;
+}
+
+.sidenav {
+    width: 300px;
+}
+
+.logo-container {
+    border-bottom: thin solid rgba(0, 0, 0, 0.25);
+    padding: 0 16px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.toolbar {
+
+    >mat-toolbar,
+    mat-toolbar-row {
+        background: rgb(215, 227, 255);
+        height: 56px;
+        min-height: 56px;
+    }
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        mat-icon{
+            padding-right: 16px;
+        }
+    }
 }
