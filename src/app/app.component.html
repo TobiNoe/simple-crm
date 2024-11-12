@@ -5,8 +5,8 @@
     </div>
 
     <ul class="menu-items">
-      <li><mat-icon>space_dashboard</mat-icon>Dashboard</li>
-      <li><mat-icon>person_add</mat-icon>User</li>
+      <li routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>space_dashboard</mat-icon>Dashboard</li>
+      <li routerLink="/user" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>person_add</mat-icon>User</li>
     </ul>
 
   </mat-drawer>
@@ -18,7 +18,11 @@
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
+
+    <div class="router-container">
+      <router-outlet />
+    </div>
+
   </div>
 
 </mat-drawer-container>
-<!-- <router-outlet /> -->
