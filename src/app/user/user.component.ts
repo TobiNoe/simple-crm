@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 
 @Component({
   selector: 'app-user',
@@ -13,5 +15,10 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    this.dialog.open(DialogAddUserComponent);
+  }
 
 }
