@@ -3,13 +3,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [
     MatButtonModule,
-    MatIcon
+    MatIcon,
+    MatCardModule
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
