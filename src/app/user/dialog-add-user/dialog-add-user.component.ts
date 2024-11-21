@@ -42,16 +42,13 @@ export class DialogAddUserComponent {
     console.log('birthDate :>> ', this.birthDate);
 
     // Add a new document with a generated id.
-    const docRef = await addDoc(collection(this.firestore, "users"), {
-      lastName: this.user.lastName,
-      firstName: this.user.firstName
-    });
+    const docRef = await addDoc(collection(this.firestore, "users"), this.user.toJSON());
     console.log("Document written with ID: ", docRef.id);
 
     /*  this.firestore
      .collection('users')
      .add(this.user)
-     .then((result: any){
+     .then((result: any) => {
        console.log('Adding User finished:>> ', result );
      }); */
   }
