@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -37,7 +37,7 @@ export class DialogAddUserComponent {
   birthDate: any;
   loading = false;
 
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
   }
 
@@ -52,6 +52,7 @@ export class DialogAddUserComponent {
       ).then(
         (docRef) => console.log("Document written with ID: ", docRef?.id));
         this.loading = false;
+        this.dialogRef.close();
   }
 
 }
