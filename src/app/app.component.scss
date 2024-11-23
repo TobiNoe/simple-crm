@@ -1,10 +1,9 @@
 .mat-drawer-container {
     height: 100vh;
-    
 
     >mat-drawer {
         border-radius: 0;
-        border-right: solid thin #44474E;
+        border-right: solid thin #24006E;
     }
 }
 
@@ -17,27 +16,31 @@
 }
 
 .logo-container {
-    border-bottom: thin solid #44474E;
+    box-sizing: border-box;
     background: #44474E;
     padding: 0 16px;
-    min-height: 56px;
+    height: 64px;
     display: flex;
     align-items: center;
 
     >img {
         height: 48px;
-        
+
     }
 }
 
 .toolbar {
 
+    >mat-toolbar {
+        border-bottom: solid 1px #E0E0FF;
+        box-sizing: border-box;
+    }
+
     >mat-toolbar,
     mat-toolbar-row {
         color: #24006E;
         background: #E0E0FF;
-        height: 56px;
-        min-height: 56px;
+        height: 62px;
     }
 }
 
@@ -57,12 +60,12 @@
             background: rgba(0, 0, 0, 0.1);
         }
 
-        mat-icon{
+        mat-icon {
             padding-right: 16px;
         }
     }
 }
 
-.router-container{
-    padding: 16px 56px;
+.router-container {
+    padding: 16px;
 }
