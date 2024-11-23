@@ -1,5 +1,11 @@
 .mat-drawer-container {
     height: 100vh;
+    
+
+    >mat-drawer {
+        border-radius: 0;
+        border-right: solid thin #44474E;
+    }
 }
 
 .menu-icon {
@@ -11,18 +17,25 @@
 }
 
 .logo-container {
-    border-bottom: thin solid rgba(0, 0, 0, 0.25);
+    border-bottom: thin solid #44474E;
+    background: #44474E;
     padding: 0 16px;
     min-height: 56px;
     display: flex;
     align-items: center;
+
+    >img {
+        height: 48px;
+        
+    }
 }
 
 .toolbar {
 
     >mat-toolbar,
     mat-toolbar-row {
-        background: rgb(215, 227, 255);
+        color: #24006E;
+        background: #E0E0FF;
         height: 56px;
         min-height: 56px;
     }
