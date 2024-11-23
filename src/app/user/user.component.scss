@@ -5,6 +5,39 @@
 }
 
 .user-table {
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        cursor: pointer;
+
+        &:first-child {
+            cursor: unset;
+        }
+
+        &:hover {
+            background-color: rgba(0,0,0,0.2);
+
+            &:first-child {
+                background-color: #FAF9FD;
+            }
+        }
+    }
+
+    th {
+        color: rgba(0,0,0,0.2);
+        padding-bottom: 8px
+    };
+
+    td {
+        height: 48px;
+    }
+
     th {
         text-align: start;
         font-family: 'Material Fonts';
