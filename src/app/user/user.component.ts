@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatCardModule } from '@angular/material/card';
 import { FirestoreService } from '../shared/services/firestore.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,8 @@ import { FirestoreService } from '../shared/services/firestore.service';
   imports: [
     MatButtonModule,
     MatIcon,
-    MatCardModule
+    MatCardModule,
+    NgFor
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
