@@ -3,11 +3,13 @@
         <table class="w100 user-table">
             <tr>
                 <th>Name</th>
+                <th>E-Mail</th>
                 <th>Zip-Code</th>
                 <th>City</th>
             </tr>
             <tr *ngFor="let item of firestoreService.users">
-                <td>{{item.lastName}} {{item.firstName}}</td>
+                <td>{{item.lastName}}, {{item.firstName}}</td>
+                <td>{{item.email}}</td>
                 <td>{{item.zipCode}}</td>
                 <td>{{item.city}}</td>
             </tr>

@@ -33,7 +33,6 @@ import { FirestoreService } from '../../shared/services/firestore.service';
 })
 export class DialogAddUserComponent {
   firestoreService = inject(FirestoreService);
-  /* private firestore: Firestore = inject(Firestore); */
   user = new User();
   birthDate: any;
   loading = false;
