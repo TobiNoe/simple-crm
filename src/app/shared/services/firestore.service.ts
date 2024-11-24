@@ -6,7 +6,7 @@ import { addDoc, collection, doc, Firestore, onSnapshot } from '@angular/fire/fi
 })
 export class FirestoreService {
   private firestore: Firestore = inject(Firestore);
-  users = [];
+  users: any = [];
   unsubUsers;
 
   constructor() {
@@ -26,14 +26,11 @@ export class FirestoreService {
     return onSnapshot(this.getCollectionRef(CollectionID), (list) => {
       this.users = [];
       list.forEach(element => {
-        console.log('element.data() :>> ', element.data());
-        console.log('element.id :>> ', element.id);
-        /* this.users.push(this.setNoteObject(element.data(), element.id)); */
+        this.users.push(element.data());
       });
+      console.log('users :>> ', this.users);
     });
   }
-
-
 
   ngOnDestroy() {
     this.unsubUsers();
