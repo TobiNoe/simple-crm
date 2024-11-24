@@ -8,9 +8,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../shared/models/user.class';
 import { FormsModule } from '@angular/forms';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgIf } from '@angular/common';
+import { FirestoreService } from '../../shared/services/firestore.service';
 
 
 @Component({
@@ -32,7 +32,8 @@ import { NgIf } from '@angular/common';
   styleUrl: './dialog-add-user.component.scss'
 })
 export class DialogAddUserComponent {
-  firestore: Firestore = inject(Firestore);
+  firestoreService = inject(FirestoreService);
+  /* private firestore: Firestore = inject(Firestore); */
   user = new User();
   birthDate: any;
   loading = false;
@@ -44,15 +45,15 @@ export class DialogAddUserComponent {
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
-
+    this.firestoreService.saveUserInDB(this.user.toJSON());
     // Add a new document with a generated id.
-    const docRef = await addDoc(collection(this.firestore, "users"), this.user.toJSON())
+    /* const docRef = await addDoc(collection(this.firestore, "users"), this.user.toJSON())
       .catch(
         (err) => console.error(err)
       ).then(
-        (docRef) => console.log("Document written with ID: ", docRef?.id));
-        this.loading = false;
-        this.dialogRef.close();
+        (docRef) => console.log("Document written with ID: ", docRef?.id)); */
+    this.loading = false;
+    this.dialogRef.close();
   }
 
 }
