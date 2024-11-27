@@ -7,7 +7,7 @@
                 <th>Zip-Code</th>
                 <th>City</th>
             </tr>
-            <tr *ngFor="let item of firestoreService.users">
+            <tr *ngFor="let item of firestoreService.users" [routerLink]="['/dashboard', item.id]">
                 <td>{{item.lastName}}, {{item.firstName}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.zipCode}}</td>

@@ -6,6 +6,7 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
 import { MatCardModule } from '@angular/material/card';
 import { FirestoreService } from '../shared/services/firestore.service';
 import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,8 @@ import { NgFor } from '@angular/common';
     MatButtonModule,
     MatIcon,
     MatCardModule,
-    NgFor
+    NgFor,
+    RouterLink
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
