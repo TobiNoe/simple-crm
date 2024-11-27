@@ -45,12 +45,6 @@ export class DialogAddUserComponent {
     this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
     this.firestoreService.saveUserInDB(this.user.toJSON());
-    // Add a new document with a generated id.
-    /* const docRef = await addDoc(collection(this.firestore, "users"), this.user.toJSON())
-      .catch(
-        (err) => console.error(err)
-      ).then(
-        (docRef) => console.log("Document written with ID: ", docRef?.id)); */
     this.loading = false;
     this.dialogRef.close();
   }
