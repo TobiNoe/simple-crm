@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, onSnapshot } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore, onSnapshot, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,6 @@ export class FirestoreService {
   unsubUsers;
 
   constructor() {
-    console.log('DocRef :>> ', this.getDocRef("users", "2FjsaVtxH1pxsbEjH1TT"));
     this.unsubUsers = this.subscribeCollection("users");
   }
 
@@ -41,6 +40,13 @@ export class FirestoreService {
       .catch(
         (err) => console.error(err)
       ).then(
-        (docRef) => console.log("Document written with ID: ", docRef?.id));
+        (docRef) => this.updateUserDocID(docRef?.id));
+  }
+
+  async updateUserDocID (id: any) {
+    const userDocRef = this.getDocRef("users", id);
+    await updateDoc(userDocRef, {
+      id: id
+    });
   }
 }
