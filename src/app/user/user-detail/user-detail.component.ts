@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
+import { FirestoreService } from '../../shared/services/firestore.service';
+import { User } from '../../shared/models/user.class';
 
 @Component({
   selector: 'app-user-detail',
@@ -12,13 +14,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './user-detail.component.scss'
 })
 export class UserDetailComponent implements OnInit{
-  user: any;
+  firestoreService = inject(FirestoreService);
+  user: User = new User();
   
   constructor(private route: ActivatedRoute) {}
 
   async ngOnInit() {
-    const userId = this.route.snapshot.paramMap.get('id'); // ID aus der Route
-    console.log('UserID :>> ', userId);
+    const userId = this.route.snapshot.paramMap.get('id');
+    this.user = new User(await this.firestoreService.getUser(userId));
   }
 
 }
