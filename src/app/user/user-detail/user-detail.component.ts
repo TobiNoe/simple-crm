@@ -6,6 +6,9 @@ import { User } from '../../shared/models/user.class';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -20,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './user-detail.component.scss'
 })
 export class UserDetailComponent implements OnInit {
+  readonly dialog = inject(MatDialog);
   firestoreService = inject(FirestoreService);
   user: User = new User();
 
@@ -31,10 +35,10 @@ export class UserDetailComponent implements OnInit {
   }
 
   editUser() {
-    console.log('Dialog :>> editUser()');
+    this.dialog.open(DialogEditUserComponent);
   }
 
   editAddress() {
-    console.log('Dialog :>> editAddress()');
+    this.dialog.open(DialogEditAddressComponent);
   }
 }
