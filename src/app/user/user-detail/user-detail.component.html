@@ -11,6 +11,9 @@
         <mat-card-title>Address</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+        <button mat-icon-button class="pos-right-top-corner" (click)="openAddressDialog()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
         {{ user.street }} <br>
         {{ user.zipCode }} {{ user.city }}
     </mat-card-content>
