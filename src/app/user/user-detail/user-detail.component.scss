@@ -11,6 +11,13 @@
         border-radius: 50%;
         padding: 16px;
     }
+
+    >button {
+        >mat-icon {
+            color: whitesmoke;
+        }
+    }
+
 }
 
 .user-detail {
