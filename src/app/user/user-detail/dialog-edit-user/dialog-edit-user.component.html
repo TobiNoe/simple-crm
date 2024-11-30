@@ -16,6 +16,18 @@
 
     <div class="pt-16">
         <mat-form-field class="mr-16 w100" appearance="outline">
+            <mat-label>Birth date</mat-label>
+            <input [disabled]="loading" [(ngModel)]="birthDate" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>today</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="pt-16">
+        <mat-form-field class="mr-16 w100" appearance="outline">
             <mat-label>E-Mail</mat-label>
             <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="E-Mail">
             <mat-hint>Please enter a name</mat-hint>
