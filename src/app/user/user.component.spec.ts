@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
+import { FirestoreService } from '../shared/services/firestore.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -8,9 +10,18 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserComponent]
+      declarations: [],
+      imports: [
+        UserComponent
+      ],
+      providers: [
+        FirestoreService, // Den echten FirestoreService bereitstellen
+        {
+          provide: MatDialogRef,
+          useValue: { close: jasmine.createSpy('close') }, // MatDialogRef mocken
+        }]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UserComponent);
     component = fixture.componentInstance;
