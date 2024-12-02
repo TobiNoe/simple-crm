@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { FirestoreService } from '../../shared/services/firestore.service';
@@ -26,12 +26,29 @@ export class UserDetailComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   firestoreService = inject(FirestoreService);
   user: User = new User();
+  userSignal = signal({
+    firstName: this.user.firstName,
+    lastName: this.user.lastName,
+    email: this.user.email,
+    street: this.user.street,
+    zipCode: this.user.zipCode,
+    city: this.user.city
+  });
 
   constructor(private route: ActivatedRoute) { }
 
   async ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('id');
     this.user = new User(await this.firestoreService.getUser(userId));
+    this.userSignal.set({
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.user.email,
+      street: this.user.street,
+      zipCode: this.user.zipCode,
+      city: this.user.city
+    });
+    console.log('userSignal.Name :>> ', this.userSignal().firstName);
   }
 
   editUser() {

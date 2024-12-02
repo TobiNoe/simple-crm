@@ -9,8 +9,8 @@
 
     <img src="./assets/img/profile.png" alt="Profile image">
     <div class="user-detail">
-        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-        <p>{{ user.email }}</p>
+        <h2>{{ userSignal().firstName }} {{ userSignal().lastName }}</h2>
+        <p>{{ userSignal().email }}</p>
     </div>
 </mat-card>
 
@@ -27,7 +27,7 @@
             <button mat-menu-item (click)="editAddress()">Edit</button>
         </mat-menu>
 
-        {{ user.street }} <br>
-        {{ user.zipCode }} {{ user.city }}
+        {{ userSignal().street }} <br>
+        {{ userSignal().zipCode }} {{ userSignal().city }}
     </mat-card-content>
 </mat-card>
